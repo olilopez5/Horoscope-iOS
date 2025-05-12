@@ -17,9 +17,9 @@ struct Horoscope {
     
     static let horoscopeList = [
         Horoscope(id: "aries", name: "Aries", date: "March 21 to April 19", image: UIImage(named: "horoscope-icons/aries-svgrepo-com")!, color: UIColor(named: "aries-color")!),
-        Horoscope(id: "taurus", name: "Tauro", date: "April 20 to May 20", image: UIImage(named: "horoscope-icons/taurus-svgrepo-com")!, color: UIColor(named: "taurus-color")!),
-        Horoscope(id: "gemini", name: "Géminis", date: "May 21 to June 20", image: UIImage(named: "horoscope-icons/gemini-svgrepo-com")!, color: UIColor(named: "gemini-color")!),
-        Horoscope(id: "cancer", name: "Cáncer", date: "June 21 to July 22", image: UIImage(named: "horoscope-icons/cancer-svgrepo-com")!, color: UIColor(named: "cancer-color")!),
+        Horoscope(id: "taurus", name: "Taurus", date: "April 20 to May 20", image: UIImage(named: "horoscope-icons/taurus-svgrepo-com")!, color: UIColor(named: "taurus-color")!),
+        Horoscope(id: "gemini", name: "Gemini", date: "May 21 to June 20", image: UIImage(named: "horoscope-icons/gemini-svgrepo-com")!, color: UIColor(named: "gemini-color")!),
+        Horoscope(id: "cancer", name: "Cancer", date: "June 21 to July 22", image: UIImage(named: "horoscope-icons/cancer-svgrepo-com")!, color: UIColor(named: "cancer-color")!),
         Horoscope(id: "leo", name: "Leo", date: "July 23 to August 22", image: UIImage(named: "horoscope-icons/leo-svgrepo-com")!, color: UIColor(named: "leo-color")!),
         Horoscope(id: "virgo", name: "Virgo", date: "August 23 to September 22", image: UIImage(named: "horoscope-icons/virgo-svgrepo-com")!, color: UIColor(named: "virgo-color")!),
         Horoscope(id: "libra", name: "Libra", date: "September 23 to October 22", image: UIImage(named: "horoscope-icons/libra-svgrepo-com")!, color: UIColor(named: "libra-color")!),
