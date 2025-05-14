@@ -15,11 +15,14 @@ class HoroscopeViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var favoriteIcon: UIImageView!
+    
     func render(horoscope: Horoscope){
         nameLabel.text = horoscope.name
         dateLabel.text = horoscope.date
         signImageView.image = horoscope.image.withTintColor(UIColor(named: "white")!)
         bgImageView.backgroundColor = horoscope.color
+        favoriteIcon.isHidden = !SessionManager().isFavorite(id: horoscope.id)
     }
     
     override func awakeFromNib() {

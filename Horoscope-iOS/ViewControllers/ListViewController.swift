@@ -27,6 +27,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UISearchBarDe
            searchController.searchBar.delegate = self
            self.navigationItem.searchController = searchController
        }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
        
        // MARK: Navigation
        
