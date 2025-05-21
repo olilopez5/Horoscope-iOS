@@ -18,6 +18,14 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var favoriteMenu: UIBarButtonItem!
     
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+    @IBOutlet weak var periodSelector: UISegmentedControl!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+       var isFav: Bool = false
+       
+       let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +40,8 @@ class DetailViewController: UIViewController {
         
         isFavorite = SessionManager().isFavorite(id: horoscope.id)
                 setFavoriteIcon()
+        
+                getHoroscopeLuck()
             }
             
             func setFavoriteIcon() {
@@ -47,6 +57,34 @@ class DetailViewController: UIViewController {
                 SessionManager().setFavorite(id: isFavorite ? horoscope.id : "")
                 setFavoriteIcon()
             }
-            
+    @IBAction func periodSelector(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            getHoroscopeLuck(period: "daily")
+            break
+        case 1:
+            getHoroscopeLuck(period: "weekly")
+            break
+        default:
+            getHoroscopeLuck(period: "monthly")
+            break
         }
+    }
+    
+    func getHoroscopeLuck(period: String = "daily") {
+            loading.isHidden = false
+            loading.startAnimating()
 
+            Task {
+                do {
+                    let luck = try await HoroscopeProvider.getHoroscopeLuck(horoscopeId: horoscope.id, for: period)
+                    descriptionTextView.text = luck
+                } catch {
+                    print("Error al obtener horóscopo: \(error)")
+                    descriptionTextView.text = "No se pudo cargar el horóscopo."
+                }
+                loading.stopAnimating()
+                loading.isHidden = true
+            }
+        }
+    }
